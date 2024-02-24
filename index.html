@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard - SB Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body class="sb-nav-fixed">
+    <nav
+      class="sb-topnav navbar navbar-expand navbar-white bg-white px-sm-5 border-bottom shadow-sm d-flex justify-content-between py-5"
+    >
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="index.html"
+        ><button
+          type="button"
+          class="btn justify-content-start d-flex align-items-center"
+        >
+          <!-- <small>Goerli Testnet</small> -->
+          <img
+            src="https://odinp2p.help/img/logo/logo-w.png"
+            alt=""
+            class="w-50 h-25"
+          />
+          <h2 class="opacity-75 text-secondary">odinp2p</h2>
+        </button></a
+      >
+
+      <a class="navbar-brand ps-3" href="index.html"
+        ><button
+          type="button"
+          class="btn btn-outline-secondary bg-white text-black py-0 text-xs"
+          id="connectWalletBtn"
+        >
+          <small>Connect Wallet</small>
+        </button></a
+      >
+    </nav>
+
+    <div id="layoutSidenav" class="mt-5">
+      <div id="layoutSidenav_content" class="flex justify-content-center">
+        <main class="px-sm-5" style="background-color: #fafbfd">
+          <div class="container-fluid px-4">
+            <h5 class="py-5 bd-highlight">
+              Contract :
+              <a href="#" class="text-decoration-none text-break"
+                >0xe8804F26E2bb944C857F581dA638437C9EbF3143</a
+              >
+            </h5>
+
+            <div class="row">
+              <div class="">
+                <div class="card mb-4">
+                  <div class="card-header font-weight-bold">
+                    <!-- <i class="fas fa-chart-area me-1"></i> -->
+                    <b class="opacity-75">Odin P2p</b>
+                  </div>
+
+                  <div class="card-body">
+                    <!-- <canvas id="myAreaChart" width="100%" height="40"></canvas> -->
+                    <p>
+                      Dear OdinP2P Community,<br> We are thrilled to announce that
+                      our smart contract, OdinP2P, is now publicly open for
+                      everyone to explore and engage with. In our commitment to
+                      transparency and trust, we have opened up our contract to
+                      the audience, allowing them to interact directly. To
+                      facilitate a seamless interaction experience, we have
+                      developed a user-friendly UI (User Interface) that
+                      empowers individuals to engage with our trusted OdinP2P
+                      contract effortlessly. This UI serves as a convenient
+                      gateway for users to navigate and interact with the
+                      functionalities of our contract without the need for
+                      external assistance. As a testament to our dedication to
+                      security and reliability, we proudly declare that this
+                      project is backed by the robust infrastructure of GitHub,
+                      ensuring a trustworthy and open-source foundation for the
+                      OdinP2P community. Thank you for being a part of our
+                      journey. We invite you to explore the OdinP2P smart
+                      contract, confident in the transparency and security that
+                      underpins our project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="nav nav-tabs m-2" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="read-tab"
+                  data-toggle="tab"
+                  href="#read"
+                  role="tab"
+                  aria-controls="read"
+                  aria-selected="true"
+                  >Read</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="write-tab"
+                  data-toggle="tab"
+                  href="#write"
+                  role="tab"
+                  aria-controls="write"
+                  aria-selected="false"
+                  >Write</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="abi-tab"
+                  data-toggle="tab"
+                  href="#abi"
+                  role="tab"
+                  aria-controls="abi"
+                  aria-selected="false"
+                  >ABI</a
+                >
+              </li>
+            </ul>
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="">
+                  <div class="tab-content" id="myTabContent">
+                    <!----------------------------------------------- read page start ------------------------------------------------------>
+                    <div
+                      class="tab-pane fade show active"
+                      id="read"
+                      role="tabpanel"
+                      aria-labelledby="read-tab"
+                    >
+                      <!-- <h6>read</h6> -->
+                      <div id="accordion" class="d-flex flex-column gap-1">
+                        <div class="card my-2">
+                          <div class="card-header" id="activeLevelsView">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_activeLevelsView"
+                                aria-expanded="true"
+                                aria-controls="collapse_activeLevelsView"
+                              >
+                                1. activeLevelsView
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div
+                            id="collapse_activeLevelsView"
+                            class="collapse"
+                            aria-labelledby="activeLevelsView"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="activeLevelsViewPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="activeLevelsViewInput"
+                                    placeholder="address user"
+                                  />
+                                  <p
+                                    id="activeLevelsViewErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="activeLevelsViewSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="activeUser">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_activeUser"
+                                aria-expanded="false"
+                                aria-controls="collapse_activeUser"
+                              >
+                                2. activeUser
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_activeUser"
+                            class="collapse"
+                            aria-labelledby="activeUser"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+
+                                  <p
+                                    id="activeUserPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="activeUserInput"
+                                    placeholder="address _user"
+                                  />
+                                  <p
+                                    id="activeUserErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="activeUserSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="avGetHelp">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_avGetHelp"
+                                aria-expanded="false"
+                                aria-controls="collapse_avGetHelp"
+                              >
+                                3. avGetHelp
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_avGetHelp"
+                            class="collapse"
+                            aria-labelledby="avGetHelp"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="avGetHelpPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <!-- <input
+                                    type="text"
+                                    class="form-control"
+                                    id="avGetHelpInput"
+                                  /> -->
+                                  <p
+                                    id="avGetHelpErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <!-- <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="avGetHelpSubmit"
+                                >
+                                  Submit
+                                </button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="bonusInfos">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_bonusInfos"
+                                aria-expanded="false"
+                                aria-controls="collapse_bonusInfos"
+                              >
+                                4. bonusInfos
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_bonusInfos"
+                            class="collapse"
+                            aria-labelledby="bonusInfos"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="bonusInfosPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="bonusInfosInput"
+                                    placeholder="address"
+                                  />
+                                  <p
+                                    id="bonusInfosErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="bonusInfosSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="directUser">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_directUser"
+                                aria-expanded="false"
+                                aria-controls="collapse_directUser"
+                              >
+                                5. directUser
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_directUser"
+                            class="collapse"
+                            aria-labelledby="directUser"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="directUserPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="directUserInput"
+                                    placeholder="address userAddress"
+                                  />
+                                  <p
+                                    id="directUserErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="directUserSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="distShare">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_distShare"
+                                aria-expanded="false"
+                                aria-controls="collapse_distShare"
+                              >
+                                6. distShare
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_distShare"
+                            class="collapse"
+                            aria-labelledby="distShare"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="distSharePara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="distShareInput"
+                                  />
+                                  <p
+                                    id="distShareErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="distShareSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="findGenUser">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_findGenUser"
+                                aria-expanded="false"
+                                aria-controls="collapse_findGenUser"
+                              >
+                                7. findGenUser
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_findGenUser"
+                            class="collapse"
+                            aria-labelledby="findGenUser"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="findGenUserPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="findGenUserInput"
+                                    placeholder="address userAddress"
+                                  />
+                                  <p
+                                    id="findGenUserErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="findGenUserSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="findOrder">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_findOrder"
+                                aria-expanded="false"
+                                aria-controls="collapse_findOrder"
+                              >
+                                8. findOrder
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_findOrder"
+                            class="collapse"
+                            aria-labelledby="findOrder"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="findOrderPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="findOrderInput"
+                                    placeholder="address user"
+                                  />
+                                  <p
+                                    id="findOrderErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="findOrderSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="findRemainPh">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_findRemainPh"
+                                aria-expanded="false"
+                                aria-controls="collapse_findRemainPh"
+                              >
+                                9. findRemainPh
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_findRemainPh"
+                            class="collapse"
+                            aria-labelledby="findRemainPh"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="findRemainPhPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="getPrice">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_getPrice"
+                                aria-expanded="false"
+                                aria-controls="collapse_getPrice"
+                              >
+                                10. getPrice
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_getPrice"
+                            class="collapse"
+                            aria-labelledby="getPrice"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p id="getPricePara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="getPriceInput"
+                                    placeholder="uint256 value"
+                                  />
+                                  <p
+                                    id="getPriceErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="getPriceSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card my-2">
+                          <div class="card-header" id="ghAddress">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_ghAddress"
+                                aria-expanded="true"
+                                aria-controls="collapse_ghAddress"
+                              >
+                                11. ghAddress
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div
+                            id="collapse_ghAddress"
+                            class="collapse"
+                            aria-labelledby="ghAddress"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="ghAddressPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="ghAddressInput"
+                                    placeholder="uint256"
+                                  />
+                                  <p
+                                    id="ghAddressErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="ghAddressSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="ghInfos">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_ghInfos"
+                                aria-expanded="false"
+                                aria-controls="collapse_ghInfos"
+                              >
+                                12. ghInfos
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_ghInfos"
+                            class="collapse"
+                            aria-labelledby="ghInfos"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p id="ghInfosPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="ghInfosInput"
+                                    placeholder="uint256"
+                                  />
+                                  <p
+                                    id="ghInfosErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="ghInfosSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="ghPotential">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_ghPotential"
+                                aria-expanded="false"
+                                aria-controls="collapse_ghPotential"
+                              >
+                                13. ghPotential
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_ghPotential"
+                            class="collapse"
+                            aria-labelledby="ghPotential"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="ghPotentialPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="ghPotentialInput"
+                                    placeholder="address _user"
+                                  />
+                                  <p
+                                    id="ghPotentialErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="ghPotentialSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="linkExpireTime">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_linkExpireTime"
+                                aria-expanded="false"
+                                aria-controls="collapse_linkExpireTime"
+                              >
+                                14. linkExpireTime
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_linkExpireTime"
+                            class="collapse"
+                            aria-labelledby="linkExpireTime"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="linkExpireTimePara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="linkExpireTimeInput"
+                                    placeholder="uint32 linkID"
+                                  />
+                                  <p
+                                    id="linkExpireTimeErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="linkExpireTimeSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="linkInfos">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_linkInfos"
+                                aria-expanded="false"
+                                aria-controls="collapse_linkInfos"
+                              >
+                                15. linkInfos
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_linkInfos"
+                            class="collapse"
+                            aria-labelledby="linkInfos"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="linkInfosPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="linkInfosInput"
+                                    placeholder="uint32"
+                                  />
+                                  <p
+                                    id="linkInfosErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="linkInfosSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="matchedPhId">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_matchedPhId"
+                                aria-expanded="false"
+                                aria-controls="collapse_matchedPhId"
+                              >
+                                16. matchedPhId
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_matchedPhId"
+                            class="collapse"
+                            aria-labelledby="matchedPhId"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="matchedPhIdPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="matureOrder">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_matureOrder"
+                                aria-expanded="false"
+                                aria-controls="collapse_matureOrder"
+                              >
+                                17. matureOrder
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_matureOrder"
+                            class="collapse"
+                            aria-labelledby="matureOrder"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="matureOrderPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="matureOrderInput1"
+                                    placeholder="address _user"
+                                  />
+                                  <p
+                                    id="matureOrderErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="matureOrderInput2"
+                                    placeholder="bool fullrun"
+                                  />
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="matureOrderSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="nextRoyalty">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_nextRoyalty"
+                                aria-expanded="false"
+                                aria-controls="collapse_nextRoyalty"
+                              >
+                                18. nextRoyalty
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_nextRoyalty"
+                            class="collapse"
+                            aria-labelledby="nextRoyalty"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="nextRoyaltyPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="payPhValue">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_payPhValue"
+                                aria-expanded="false"
+                                aria-controls="collapse_payPhValue"
+                              >
+                                19. payPhValue
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_payPhValue"
+                            class="collapse"
+                            aria-labelledby="payPhValue"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="payPhValuePara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="payPhValueInput1"
+                                    placeholder="uint32 amount"
+                                  />
+                                  <p
+                                    id="payPhValueErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="payPhValueInput2"
+                                    placeholder="uint32 primValue"
+                                  />
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="payPhValueSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="phAddress">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_phAddress"
+                                aria-expanded="false"
+                                aria-controls="collapse_phAddress"
+                              >
+                                20. phAddress
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_phAddress"
+                            class="collapse"
+                            aria-labelledby="phAddress"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="phAddressPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phAddressInput"
+                                    placeholder="uint256"
+                                  />
+                                  <p
+                                    id="phAddressErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="phAddressSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card my-2">
+                          <div class="card-header" id="phGrowth">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_phGrowth"
+                                aria-expanded="true"
+                                aria-controls="collapse_phGrowth"
+                              >
+                                21. phGrowth
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div
+                            id="collapse_phGrowth"
+                            class="collapse"
+                            aria-labelledby="phGrowth"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p id="phGrowthPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phGrowthInput"
+                                    placeholder="uint256 phOrder"
+                                  />
+                                  <p
+                                    id="phGrowthErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="phGrowthSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="phInfos">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_phInfos"
+                                aria-expanded="false"
+                                aria-controls="collapse_phInfos"
+                              >
+                                22. phInfos
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_phInfos"
+                            class="collapse"
+                            aria-labelledby="phInfos"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p id="phInfosPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phInfosInput"
+                                    placeholder="uint256"
+                                  />
+                                  <p
+                                    id="phInfosErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="phInfosSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="reserveContract">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_reserveContract"
+                                aria-expanded="false"
+                                aria-controls="collapse_reserveContract"
+                              >
+                                23. reserveContract
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_reserveContract"
+                            class="collapse"
+                            aria-labelledby="reserveContract"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="reserveContractPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="routerAddress">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_routerAddress"
+                                aria-expanded="false"
+                                aria-controls="collapse_routerAddress"
+                              >
+                                24. routerAddress
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_routerAddress"
+                            class="collapse"
+                            aria-labelledby="routerAddress"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="routerAddressPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="royalty_Index">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_royalty_Index"
+                                aria-expanded="false"
+                                aria-controls="collapse_royalty_Index"
+                              >
+                                25. royalty_Index
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_royalty_Index"
+                            class="collapse"
+                            aria-labelledby="royalty_Index"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+
+                                  <p
+                                    id="royalty_IndexPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="royaltys">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_royaltys"
+                                aria-expanded="false"
+                                aria-controls="collapse_royaltys"
+                              >
+                                26. royaltys
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_royaltys"
+                            class="collapse"
+                            aria-labelledby="royaltys"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+
+                                  <p id="royaltysPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="royaltysInput"
+                                    placeholder="uint256"
+                                  />
+                                  <p
+                                    id="royaltysErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="royaltysSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="tokenAddress">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_tokenAddress"
+                                aria-expanded="false"
+                                aria-controls="collapse_tokenAddress"
+                              >
+                                27. tokenAddress
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_tokenAddress"
+                            class="collapse"
+                            aria-labelledby="tokenAddress"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="tokenAddressPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="totalDirect">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_totalDirect"
+                                aria-expanded="false"
+                                aria-controls="collapse_totalDirect"
+                              >
+                                28. totalDirect
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_totalDirect"
+                            class="collapse"
+                            aria-labelledby="totalDirect"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+
+                                  <p
+                                    id="totalDirectPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="totalDirectInput"
+                                    placeholder="address userAddress"
+                                  />
+                                  <p
+                                    id="totalDirectErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="totalDirectSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="totalGains">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_totalGains"
+                                aria-expanded="false"
+                                aria-controls="collapse_totalGains"
+                              >
+                                29. totalGains
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_totalGains"
+                            class="collapse"
+                            aria-labelledby="totalGains"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="totalGainsPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="totalGainsInput"
+                                    placeholder="address _user"
+                                  />
+                                  <p
+                                    id="totalGainsErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <!-- <div class="mb-3">
+                      <label for="text2" class="form-label">Text_2</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="totalGainsSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="totalGhOrder">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_totalGhOrder"
+                                aria-expanded="false"
+                                aria-controls="collapse_totalGhOrder"
+                              >
+                                30. totalGhOrder
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_totalGhOrder"
+                            class="collapse"
+                            aria-labelledby="totalGhOrder"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="totalGhOrderPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card my-2">
+                          <div class="card-header" id="totalLinkID">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_totalLinkID"
+                                aria-expanded="true"
+                                aria-controls="collapse_totalLinkID"
+                              >
+                                31. totalLinkID
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div
+                            id="collapse_totalLinkID"
+                            class="collapse"
+                            aria-labelledby="totalLinkID"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  
+                                  <p
+                                    id="totalLinkIDPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="totalPhOrder">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_totalPhOrder"
+                                aria-expanded="false"
+                                aria-controls="collapse_totalPhOrder"
+                              >
+                                32. totalPhOrder
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_totalPhOrder"
+                            class="collapse"
+                            aria-labelledby="totalPhOrder"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="totalPhOrderPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="usdAddress">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_usdAddress"
+                                aria-expanded="false"
+                                aria-controls="collapse_usdAddress"
+                              >
+                                33. usdAddress
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_usdAddress"
+                            class="collapse"
+                            aria-labelledby="usdAddress"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="usdAddressPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  
+                                </div>
+
+                                
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="userInfos">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_userInfos"
+                                aria-expanded="false"
+                                aria-controls="collapse_userInfos"
+                              >
+                                34. userInfos
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_userInfos"
+                            class="collapse"
+                            aria-labelledby="userInfos"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="userInfosPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userInfosInput"
+                                    placeholder="address"
+                                  />
+                                  <p
+                                    id="userInfosErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="userInfosSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="userLiveStatus">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_userLiveStatus"
+                                aria-expanded="false"
+                                aria-controls="collapse_userLiveStatus"
+                              >
+                                35. userLiveStatus
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_userLiveStatus"
+                            class="collapse"
+                            aria-labelledby="userLiveStatus"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="userLiveStatusPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userLiveStatusInput"
+                                    placeholder="address user"
+                                  />
+                                  <p
+                                    id="userLiveStatusErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="userLiveStatusSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="userPhView">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_userPhView"
+                                aria-expanded="false"
+                                aria-controls="collapse_userPhView"
+                              >
+                                36. userPhView
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_userPhView"
+                            class="collapse"
+                            aria-labelledby="userPhView"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="userPhViewPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userPhViewInput"
+                                    placeholder="uint256 userPhCount"
+                                  />
+                                  <p
+                                    id="userPhViewErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="userPhViewSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="userRoyalty">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_userRoyalty"
+                                aria-expanded="false"
+                                aria-controls="collapse_userRoyalty"
+                              >
+                                37. userRoyalty
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_userRoyalty"
+                            class="collapse"
+                            aria-labelledby="userRoyalty"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="userRoyaltyPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userRoyaltyInput"
+                                    placeholder="address userAddress"
+                                  />
+                                  <p
+                                    id="userRoyaltyErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="userRoyaltySubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="viewLink">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_viewLink"
+                                aria-expanded="false"
+                                aria-controls="collapse_viewLink"
+                              >
+                                38. viewLink
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_viewLink"
+                            class="collapse"
+                            aria-labelledby="viewLink"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <!-- <div class="mb-3">
+                      <label for="text1" class="form-label">Text_1</label>
+                      <input type="text" class="form-control" id="" aria-describedby="emailHelp">
+                    </div> -->
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="viewLinkPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="viewLinkInput"
+                                    placeholder="address user"
+                                  />
+                                  <p
+                                    id="viewLinkErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="viewLinkSubmit"
+                                >
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="viewRoyalty">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_viewRoyalty"
+                                aria-expanded="false"
+                                aria-controls="collapse_viewRoyalty"
+                              >
+                                39. viewRoyalty
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_viewRoyalty"
+                            class="collapse"
+                            aria-labelledby="viewRoyalty"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+
+                                  <p
+                                    id="viewRoyaltyPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <!-- <p
+                                    id="viewRoyaltyPara2"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <p
+                                    id="viewRoyaltyPara3"
+                                    class="fw-bold ps-2"
+                                  ></p> -->
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Add more accordion items as needed -->
+                      </div>
+                    </div>
+                    <!------------------------------------------- read page end ------------------------------------------------------------------->
+
+                    <!-------------------------------------------- write page start ----------------------------------------------------------------->
+                    <div
+                      class="tab-pane fade"
+                      id="write"
+                      role="tabpanel"
+                      aria-labelledby="write-tab"
+                    >
+                      <!-- <h6>write</h6> -->
+                      <div id="accordion" class="d-flex flex-column gap-1">
+                        <div class="card my-2">
+                          <div class="card-header" id="cancelLink">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_cancelLink"
+                                aria-expanded="true"
+                                aria-controls="collapse_cancelLink"
+                              >
+                                1. cancelLink
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div
+                            id="collapse_cancelLink"
+                            class="collapse"
+                            aria-labelledby="cancelLink"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="cancelLinkPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cancelLinkInput"
+                                    placeholder="uint256 linkID"
+                                  />
+                                  <p
+                                    id="cancelLinkErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="cancelLinkSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_1" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="claimRoyalty">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_claimRoyalty"
+                                aria-expanded="false"
+                                aria-controls="collapse_claimRoyalty"
+                              >
+                                2. claimRoyalty
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_claimRoyalty"
+                            class="collapse"
+                            aria-labelledby="claimRoyalty"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="claimRoyaltyPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <p
+                                    id="claimRoyaltyErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="claimRoyaltySubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_2" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="linkPay">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_linkPay"
+                                aria-expanded="false"
+                                aria-controls="collapse_linkPay"
+                              >
+                                3. linkPay
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_linkPay"
+                            class="collapse"
+                            aria-labelledby="linkPay"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="linkPayPara" class="fw-bold ps-2"></p>
+                                  <p
+                                    id="linkPayErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="linkPaySubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_3" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="makeGh">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_makeGh"
+                                aria-expanded="false"
+                                aria-controls="collapse_makeGh"
+                              >
+                                4. makeGh
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_makeGh"
+                            class="collapse"
+                            aria-labelledby="makeGh"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="makeGhPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="makeGhInput"
+                                    placeholder="uint32 amount"
+                                  />
+                                  <p
+                                    id="makeGhErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="makeGhSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_4" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="makePh">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_makePh"
+                                aria-expanded="false"
+                                aria-controls="collapse_makePh"
+                              >
+                                5. makePh
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_makePh"
+                            class="collapse"
+                            aria-labelledby="makePh"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="makePhPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="makePhInput"
+                                    placeholder="uint32 amount"
+                                  />
+                                  <p
+                                    id="makePhErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="makePhSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_5" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="payLink">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_payLink"
+                                aria-expanded="false"
+                                aria-controls="collapse_payLink"
+                              >
+                                6. payLink
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_payLink"
+                            class="collapse"
+                            aria-labelledby="payLink"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="payLinkPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="payLinkInput"
+                                    placeholder="uint256 linkID"
+                                  />
+                                  <p
+                                    id="payLinkErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="payLinkSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_6" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="regUser">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_regUser"
+                                aria-expanded="false"
+                                aria-controls="collapse_regUser"
+                              >
+                                7. regUser
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_regUser"
+                            class="collapse"
+                            aria-labelledby="regUser"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p id="regUserPara" class="fw-bold ps-2"></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="regUserInput"
+                                    placeholder="address refAddress"
+                                  />
+                                  <p
+                                    id="regUserErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="regUserSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_7" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="remainMatching">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_remainMatching"
+                                aria-expanded="false"
+                                aria-controls="collapse_remainMatching"
+                              >
+                                8. remainMatching
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_remainMatching"
+                            class="collapse"
+                            aria-labelledby="remainMatching"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text2" class="form-label">Text_2</label> -->
+                                  <p
+                                    id="remainMatchingPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="remainMatchingInput"
+                                    placeholder="uint256 GhOrder"
+                                  />
+                                  <p
+                                    id="remainMatchingErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="remainMatchingSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_8" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="remainPay">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_remainPay"
+                                aria-expanded="false"
+                                aria-controls="collapse_remainPay"
+                              >
+                                9. remainPay
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_remainPay"
+                            class="collapse"
+                            aria-labelledby="remainPay"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="remainPayPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <p
+                                    id="remainPayErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="remainPaySubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_9" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card my-2">
+                          <div class="card-header" id="unlockedSelf">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link w-100 d-flex align-items-start text-decoration-none"
+                                data-toggle="collapse"
+                                data-target="#collapse_unlockedSelf"
+                                aria-expanded="false"
+                                aria-controls="collapse_unlockedSelf"
+                              >
+                                10. unlockedSelf
+                              </button>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapse_unlockedSelf"
+                            class="collapse"
+                            aria-labelledby="unlockedSelf"
+                            data-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <form id="myForm">
+                                <div class="mb-3">
+                                  <!-- <label for="text1" class="form-label">Text_1</label> -->
+                                  <p
+                                    id="unlockedSelfPara"
+                                    class="fw-bold ps-2"
+                                  ></p>
+                                  <p
+                                    id="unlockedSelfErrorMessage"
+                                    class="text-danger"
+                                  ></p>
+                                </div>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="unlockedSelfSubmit"
+                                >
+                                  Submit
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                  <a href=""  id="hash_10" class="text-decoration-none text-light">Show Hash</a>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Add more accordion items as needed -->
+                      </div>
+                    </div>
+                    <!---------------------------------- write page end -------------------------------------------------------------------------->
+
+                    <!-- abi page start -->
+                    <div
+                      class="tab-pane fade"
+                      id="abi"
+                      role="tabpanel"
+                      aria-labelledby="abi-tab"
+                    >
+                      <textarea
+                        name="abiTextarea"
+                        id="abiTextarea"
+                        cols="30"
+                        rows="10"
+                        class="w-100"
+                        readonly
+                      ></textarea>
+                    </div>
+                    <!-- read page  -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div
+              class="d-flex align-items-center justify-content-between small"
+            >
+              <div class="text-muted">Copyright &copy; Your Website 2023</div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="js/scripts.js?v=3.9"></script>
+
+    <script>
+      function changeJustify() {
+        var target = document.getElementById("navbar-nav");
+        target.style.justifyContent - start;
+      }
+    </script>
+  </body>
+</html>
