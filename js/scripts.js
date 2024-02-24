@@ -1331,28 +1331,32 @@ let contractAbi = [
 let _abi=contractAbi;
 
 
-web3 = new Web3(window.ethereum);
-const contract = new web3.eth.Contract(contractAbi, contractAddress);
+// web3 = new Web3(window.ethereum);
+// const contract = new web3.eth.Contract(contractAbi, contractAddress);
+let web3;
+let contract;
 
 
 // WALLET CONNECT
 
-$('#readSubmitBtnBtn').click(async function(e){
+$('#connectWalletBtn').click(async function(e){
     e.preventDefault();
-	console.log("hello");
-    let readSubmitBtnText=await connectAndDisplayWalletAddress();
-    const trimmedAddress = trimAddress(readSubmitBtnText);
-    $('#readSubmitBtnBtn').text(trimmedAddress);
+    let walletConnectText=await connectAndDisplayWalletAddress();
+    const trimmedAddress = trimAddress(walletConnectText);
+    $('#connectWalletBtn').text(trimmedAddress);
 })
 
 // CONTRACT OBJECT INITIATE
 
 
 
+
+
+
 // core function
 
 
-async function readSubmitBtn() {
+async function walletConnect() {
     try {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum);
@@ -1412,9 +1416,94 @@ async function readSubmitBtn() {
 // Example usage with async/await
 async function connectAndDisplayWalletAddress() {
     try {
-        const walletAddress = await readSubmitBtn();
+        const walletAddress = await walletConnect();
 
         if (walletAddress) {
+			web3 = new Web3(window.ethereum);
+
+   		// Initialize the contract object
+        contract = new web3.eth.Contract(contractAbi, contractAddress);
+		
+		
+		//------------------------- onload call read start-----------------------------------------------------------------------
+		//3. avGetHelp start
+			noParams('avGetHelp','avGetHelpPara');
+		// avGetHelp end
+		//6. distShare start
+    		noParams('distShare','distSharePara');
+
+    	// distShare end
+		//9. findRemainPh start
+			noParams('findRemainPh','findRemainPhPara');
+    	// findRemainPh end
+		//16. matchedPhId start
+  			noParams('matchedPhId','matchedPhIdPara');
+  		// matchedPhId end
+		//18. nextRoyalty start
+			noParams('nextRoyalty','nextRoyaltyPara');
+		// nextRoyalty end
+		//23. reserveContract start
+			noParams('reserveContract','reserveContractPara')
+		// reserveContract end
+	  
+		//24. routerAddress start
+			noParams('routerAddress','routerAddressPara')
+		// routerAddress end
+	  
+		//25. royalty_Index start
+			noParams('royalty_Index','royalty_IndexPara')
+		// royalty_Index end
+		
+		//27. tokenAddress start
+			noParams('tokenAddress','tokenAddressPara');
+		// tokenAddress end
+
+		//30. totalGhOrder start
+			noParams('totalGhOrder','totalGhOrderPara');
+  		// totalGhOrder end
+
+  		//31. totalLinkID start
+			noParams('totalLinkID','totalLinkIDPara');
+  		// totalLinkID end
+
+  		//32. totalPhOrder start
+  			noParams('totalPhOrder','totalPhOrderPara');
+  		// totalPhOrder end
+
+  		//33. usdAddress start
+			noParams('usdAddress','usdAddressPara');
+  		// usdAddress end
+
+		//39. viewRoyalty start
+		noParams('viewRoyalty','viewRoyaltyPara')
+		// viewRoyalty end
+		//------------------------- onload call read End-----------------------------------------------------------------------
+
+
+		//------------------------- onload call write start-----------------------------------------------------------------------
+
+		
+
+		//------------------------- onload call write end-----------------------------------------------------------------------
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             console.log('Connected wallet address:', walletAddress);
         } else {
             console.log('Failed to connect wallet.');
@@ -1497,7 +1586,7 @@ async function submitBtn(inputId,inputId2='', resultMsg, errorMsg,functionName,t
         var _inputId = $('#' + inputId).val();
         var _resultMsg = $('#' + resultMsg);
         var _errorMsg = $('#' + errorMsg);
-		var _transactionLink = $('#' + transactionLink);
+		// var _transactionLink = $('#' + transactionLink);
 
 		if(inputId2!=''){
 			var _inputId2 = $('#' + inputId2).val();
@@ -1508,6 +1597,7 @@ async function submitBtn(inputId,inputId2='', resultMsg, errorMsg,functionName,t
 		let result;
         try {
 			if(writeCall){
+				var _transactionLink = $('#' + transactionLink);
 				_transactionLink.attr('href', 'https://odinp2p.help/').attr('target', '_blank');
 				// console.log('abc');
 				const writeAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -1593,12 +1683,13 @@ async function submitBtn(inputId,inputId2='', resultMsg, errorMsg,functionName,t
 
 async function noParams(functionName, paraId,transactionLink="",writeCall=false) {
     var _inputId = $('#' + paraId);
-	var _transactionLink = $('#' + transactionLink);
+	// 
 	
     try {
         const totalLinkIDAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const totalLinkIDAccount = totalLinkIDAccounts[0];
 		if(writeCall){
+			var _transactionLink = $('#' + transactionLink);
 			_transactionLink.attr('href', 'https://odinp2p.help/').attr('target', '_blank');
 			result =  await contract.methods[functionName]().send({from: totalLinkIDAccount  ,gasLimit :3000000});
 		
@@ -1668,10 +1759,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
     });
     // activeUser end
 
-    //3. avGetHelp start
-			noParams('avGetHelp','avGetHelpPara')
-		
-    // avGetHelp end
+
 
     //4. bonusInfos start
     $("#bonusInfosSubmit").click(function(event){
@@ -1687,12 +1775,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
     });
     // directUser end
 
-    //6. distShare start
-    $("#distShareSubmit").click(function(event){
-      event.preventDefault();
-      submitBtn('distShareInput',undefined, 'distSharePara', 'distShareErrorMessage', 'distShare');
-    });
-    // distShare end
+
 
     //7. findGenUser start
     $("#findGenUserSubmit").click(function(event){
@@ -1710,9 +1793,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
     });
     // findOrder end
 
-    //9. findRemainPh start
-	noParams('findRemainPh','findRemainPhPara')
-    // findRemainPh end
+    
 
     //10. getPrice start
     $("#getPriceSubmit").click(async function(event){
@@ -1762,9 +1843,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // linkInfos end
 
-  //16. matchedPhId start
-  	noParams('matchedPhId','matchedPhIdPara');
-  // matchedPhId end
+  
 
   //17. matureOrder start
   $("#matureOrderSubmit").click(function(event){
@@ -1773,9 +1852,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // matureOrder end
 
-  //18. nextRoyalty start
-  	noParams('nextRoyalty','nextRoyaltyPara');
-  // nextRoyalty end
+  
 
   //19. payPhValue start
   $("#payPhValueSubmit").click(function(event){
@@ -1811,17 +1888,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // phInfos end
 
-  //23. reserveContract start
-  	noParams('reserveContract','reserveContractPara')
-  // reserveContract end
-
-  //24. routerAddress start
-  	noParams('routerAddress','routerAddressPara')
-  // routerAddress end
-
-  //25. royalty_Index start
-  	noParams('royalty_Index','royalty_IndexPara')
-  // royalty_Index end
+  
 
   //26. royaltys start
   $("#royaltysSubmit").click(function(event){
@@ -1830,10 +1897,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // royaltys end
 
-  //27. tokenAddress start
-	
-	noParams('tokenAddress','tokenAddressPara');
-  // tokenAddress end
+ 
 
   //28. totalDirect start
   $("#totalDirectSubmit").click(function(event){
@@ -1849,23 +1913,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // totalGains end
 
-  //30. totalGhOrder start
-		noParams('totalGhOrder','totalGhOrderPara');
-  // totalGhOrder end
-
-
-
-  //31. totalLinkID start
-		noParams('totalLinkID','totalLinkIDPara');
-  // totalLinkID end
-
-  //32. totalPhOrder start
-  		noParams('totalPhOrder','totalPhOrderPara');
-  // totalPhOrder end
-
-  //33. usdAddress start
-		noParams('usdAddress','usdAddressPara');
-  // usdAddress end
+  
 
   //34. userInfos start
   $("#userInfosSubmit").click(function(event){
@@ -1903,9 +1951,7 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
   });
   // viewLink end
 
-  //39. viewRoyalty start
-  noParams('viewRoyalty','viewRoyaltyPara')
-  // viewRoyalty end
+  
 
 /* ----------------------------------------Read Page End --------------------------------------------------- */
 
