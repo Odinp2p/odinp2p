@@ -1339,11 +1339,13 @@ let contract;
 
 // WALLET CONNECT
 
+
 $('#connectWalletBtn').click(async function(e){
     e.preventDefault();
     let walletConnectText=await connectAndDisplayWalletAddress();
     const trimmedAddress = trimAddress(walletConnectText);
     $('#connectWalletBtn').text(trimmedAddress);
+	$('#myTabContent').show();
 })
 
 // CONTRACT OBJECT INITIATE
@@ -1353,9 +1355,8 @@ $('#connectWalletBtn').click(async function(e){
 
 
 
-// core function
 
-
+// for wallet connect
 async function walletConnect() {
     try {
         if (window.ethereum) {
@@ -1598,12 +1599,14 @@ async function submitBtn(inputId,inputId2='', resultMsg, errorMsg,functionName,t
         try {
 			if(writeCall){
 				var _transactionLink = $('#' + transactionLink);
-				_transactionLink.attr('href', 'https://odinp2p.help/').attr('target', '_blank');
+
 				// console.log('abc');
 				const writeAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         		const writeAccount = writeAccounts[0];
 				
 				result =  await contract.methods[functionName](_inputId).send({from: writeAccount  ,gasLimit :3000000});
+				
+				_transactionLink.attr('href', `https://polygonscan.com/tx/${result}`).attr('target', '_blank');
 				// setAttribute --> href using jquery 
 				// Set href attribute of an anchor element with id "myLink"
 				
@@ -1690,8 +1693,11 @@ async function noParams(functionName, paraId,transactionLink="",writeCall=false)
         const totalLinkIDAccount = totalLinkIDAccounts[0];
 		if(writeCall){
 			var _transactionLink = $('#' + transactionLink);
-			_transactionLink.attr('href', 'https://odinp2p.help/').attr('target', '_blank');
-			result =  await contract.methods[functionName]().send({from: totalLinkIDAccount  ,gasLimit :3000000});
+
+
+			totalLinkIDResult =  await contract.methods[functionName]().send({from: totalLinkIDAccount  ,gasLimit :3000000});
+			_transactionLink.attr('href', `https://polygonscan.com/tx/${totalLinkIDResult}`).attr('target', '_blank');
+
 		
 			return;
 		}
@@ -2058,6 +2064,35 @@ $("#cancelLinkSubmit").click(function(event){
 
 // console.log("abc");
 
-$("#abiTextarea").text(JSON.stringify(_abi));
+_abiTextarea = $("#abiTextarea").text(JSON.stringify(_abi));
+
+
+
+$('#copyAbiButton').click(function(){
+	copyToClipboard(_abiTextarea,this);
+	// abc=$(this).text();
+	console.log($(this));
+});
+
+
+
+$("#copyButton").click(function() {
+	var href = $(this).siblings("a").attr("href");
+	copyToClipboard(href,this);
+});
+
+
+
+function copyToClipboard(text,btn) {
+	var input = $("<input>");
+	$("body").append(input);
+	input.val(text).select();
+	document.execCommand("copy");
+	input.remove();
+	console.log(btn);
+	$(btn).text('Copied');
+	
+}
+
 
   });
