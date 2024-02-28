@@ -1650,13 +1650,20 @@ $(document).ready(async function () {
         } 
         else if(isArray(result)){
           console.log("Array");
+          _resultMsg.text("");
           console.log(result);
           if(result.length ===0){
+
             console.log("length nhi h");
-            _resultMsg.append('[]')
+            _resultMsg.append('[]');
           }
+          
+          let postFix = ',';
           for (const number of result) {
-              _resultMsg.append(number);
+            if (result.indexOf(number)==result.length-1){
+              postFix='';
+           }
+              _resultMsg.append(`[${number}${postFix}]`);
             }
       }
         else if (typeof result === "object") {
