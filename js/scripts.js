@@ -1437,52 +1437,52 @@ $(document).ready(async function () {
         //3. avGetHelp start
         noParams("avGetHelp", "avGetHelpPara");
         // avGetHelp end
-        //6. distShare start
+        //5. distShare start
         noParams("distShare", "distSharePara");
 
         // distShare end
-        //9. findRemainPh start
+        //8. findRemainPh start
         noParams("findRemainPh", "findRemainPhPara");
         // findRemainPh end
-        //16. matchedPhId start
+        //15. matchedPhId start
         noParams("matchedPhId", "matchedPhIdPara");
         // matchedPhId end
-        //18. nextRoyalty start
+        //17. nextRoyalty start
         noParams("nextRoyalty", "nextRoyaltyPara");
         // nextRoyalty end
-        //23. reserveContract start
+        //22. reserveContract start
         noParams("reserveContract", "reserveContractPara");
         // reserveContract end
 
-        //24. routerAddress start
+        //23. routerAddress start
         noParams("routerAddress", "routerAddressPara");
         // routerAddress end
 
-        //25. royalty_Index start
+        //24. royalty_Index start
         noParams("royalty_Index", "royalty_IndexPara");
         // royalty_Index end
 
-        //27. tokenAddress start
+        //26. tokenAddress start
         noParams("tokenAddress", "tokenAddressPara");
         // tokenAddress end
 
-        //30. totalGhOrder start
+        //29. totalGhOrder start
         noParams("totalGhOrder", "totalGhOrderPara");
         // totalGhOrder end
 
-        //31. totalLinkID start
+        //30. totalLinkID start
         noParams("totalLinkID", "totalLinkIDPara");
         // totalLinkID end
 
-        //32. totalPhOrder start
+        //31. totalPhOrder start
         noParams("totalPhOrder", "totalPhOrderPara");
         // totalPhOrder end
 
-        //33. usdAddress start
+        //32. usdAddress start
         noParams("usdAddress", "usdAddressPara");
         // usdAddress end
 
-        //39. viewRoyalty start
+        //38. viewRoyalty start
         noParams("viewRoyalty", "viewRoyaltyPara");
         // viewRoyalty end
         //------------------------- onload call read End-----------------------------------------------------------------------
@@ -1813,25 +1813,8 @@ $(document).ready(async function () {
   });
   // bonusInfos end
 
-  //5. directUser start
-  $("#directUserSubmit").click(function (event) {
-    event.preventDefault();
-    if (walletAddressCopy === "") {
-      alert("Please connect your wallet before submitting.");
-      return;
-    } else {
-      submitBtn(
-        "directUserInput",
-        undefined,
-        "directUserPara",
-        "directUserErrorMessage",
-        "directUser"
-      );
-    }
-  });
-  // directUser end
 
-  //7. findGenUser start
+  //6. findGenUser start
   $("#findGenUserSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1850,7 +1833,7 @@ $(document).ready(async function () {
   });
   // findGefindGenUser
 
-  //8. findOrder start
+  //7. findOrder start
   $("#findOrderSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1868,7 +1851,7 @@ $(document).ready(async function () {
   });
   // findOrder end
 
-  //10. getPrice start
+  //9. getPrice start
   $("#getPriceSubmit").click(async function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1886,7 +1869,7 @@ $(document).ready(async function () {
   });
   // getPrice end
 
-  //11. ghAddress start
+  //10. ghAddress start
   $("#ghAddressSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1904,7 +1887,7 @@ $(document).ready(async function () {
   });
   // ghAddress end
 
-  //12. ghInfos start
+  //11. ghInfos start
   $("#ghInfosSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1922,7 +1905,7 @@ $(document).ready(async function () {
   });
   // ghInfos end
 
-  //13. ghPotential start
+  //12. ghPotential start
   $("#ghPotentialSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1940,7 +1923,7 @@ $(document).ready(async function () {
   });
   // ghPotential end
 
-  //14. linkExpireTime start
+  //13. linkExpireTime start
   $("#linkExpireTimeSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1958,7 +1941,7 @@ $(document).ready(async function () {
   });
   // linkExpireTime end
 
-  //15. linkInfos start
+  //14. linkInfos start
   $("#linkInfosSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1976,7 +1959,7 @@ $(document).ready(async function () {
   });
   // linkInfos end
 
-  //17. matureOrder start
+  //16. matureOrder start
   $("#matureOrderSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -1994,7 +1977,7 @@ $(document).ready(async function () {
   });
   // matureOrder end
 
-  //19. payPhValue start
+  //18. payPhValue start
   $("#payPhValueSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2012,7 +1995,7 @@ $(document).ready(async function () {
   });
   // payPhValue end
 
-  //20. phAddress start
+  //19. phAddress start
   $("#phAddressSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2030,7 +2013,7 @@ $(document).ready(async function () {
   });
   // phAddress end
 
-  //21. phGrowth start
+  //20. phGrowth start
   $("#phGrowthSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2048,7 +2031,7 @@ $(document).ready(async function () {
   });
   // phGrowth end
 
-  //22. phInfos start
+  //21. phInfos start
   $("#phInfosSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2066,7 +2049,7 @@ $(document).ready(async function () {
   });
   // phInfos end
 
-  //26. royaltys start
+  //25. royaltys start
   $("#royaltysSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2084,7 +2067,7 @@ $(document).ready(async function () {
   });
   // royaltys end
 
-  //28. totalDirect start
+  //27. totalDirect start
   $("#totalDirectSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2102,7 +2085,7 @@ $(document).ready(async function () {
   });
   // totalDirect end
 
-  //29. totalGains start
+  //28. totalGains start
   $("#totalGainsSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2120,7 +2103,7 @@ $(document).ready(async function () {
   });
   // totalGains end
 
-  //34. userInfos start
+  //33. userInfos start
   $("#userInfosSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2138,7 +2121,7 @@ $(document).ready(async function () {
   });
   // userInfos end
 
-  //35. userLiveStatus start
+  //34. userLiveStatus start
   $("#userLiveStatusSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2156,7 +2139,7 @@ $(document).ready(async function () {
   });
   // userLiveStatus end
 
-  //36. UserPhView start
+  //35. UserPhView start
   $("#UserPhViewSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2174,7 +2157,7 @@ $(document).ready(async function () {
   });
   // UserPhView end
 
-  //37. userRoyalty start
+  //36. userRoyalty start
   $("#userRoyaltySubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
@@ -2192,7 +2175,7 @@ $(document).ready(async function () {
   });
   // userRoyalty end
 
-  //38. viewLink start
+  //37. viewLink start
   $("#viewLinkSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
