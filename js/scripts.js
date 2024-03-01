@@ -4,1328 +4,1328 @@ $(document).ready(async function () {
   let contractAddress = "0xe8804F26E2bb944C857F581dA638437C9EbF3143";
   let contractAbi = [
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "linkID",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "linkID",
+          "type": "uint256"
+        }
       ],
-      name: "cancelLink",
-      outputs: [
+      "name": "cancelLink",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "claimRoyalty",
-      outputs: [
+      "inputs": [],
+      "name": "claimRoyalty",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "reserveAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "reserveAddress",
+          "type": "address"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "constructor",
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "gh_OrdersID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "gh_OrdersID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "address",
-          name: "_user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
-      name: "getHelpEv",
-      type: "event",
+      "name": "getHelpEv",
+      "type": "event"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "ghID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ghID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "status",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "status",
+          "type": "uint256"
+        }
       ],
-      name: "ghMatchingEv",
-      type: "event",
+      "name": "ghMatchingEv",
+      "type": "event"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "address",
-          name: "from_user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "from_user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "address",
-          name: "to_user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "to_user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "level",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "level",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "payAmount",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "payAmount",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "types",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "types",
+          "type": "uint256"
+        }
       ],
-      name: "income_Ev",
-      type: "event",
+      "name": "income_Ev",
+      "type": "event"
     },
     {
-      inputs: [],
-      name: "linkPay",
-      outputs: [
+      "inputs": [],
+      "name": "linkPay",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "Link_ID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "Link_ID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "status",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "status",
+          "type": "uint256"
+        }
       ],
-      name: "linkStatusEv",
-      type: "event",
+      "name": "linkStatusEv",
+      "type": "event"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "address",
-          name: "_user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
       ],
-      name: "lossAmountEv",
-      type: "event",
+      "name": "lossAmountEv",
+      "type": "event"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint32",
-          name: "amount",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "amount",
+          "type": "uint32"
+        }
       ],
-      name: "makeGh",
-      outputs: [
+      "name": "makeGh",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint32",
-          name: "amount",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "amount",
+          "type": "uint32"
+        }
       ],
-      name: "makePh",
-      outputs: [
+      "name": "makePh",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "payable",
-      type: "function",
+      "stateMutability": "payable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "linkID",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "linkID",
+          "type": "uint256"
+        }
       ],
-      name: "payLink",
-      outputs: [
+      "name": "payLink",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "Reference",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "Reference",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "From_ID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "From_ID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "to_ID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "to_ID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
-      name: "payLinkEv",
-      type: "event",
+      "name": "payLinkEv",
+      "type": "event"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "ph_OrderID",
-          type: "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ph_OrderID",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: "address",
-          name: "user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
-      name: "provideHelpEv",
-      type: "event",
+      "name": "provideHelpEv",
+      "type": "event"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "refAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "refAddress",
+          "type": "address"
+        }
       ],
-      name: "regUser",
-      outputs: [
+      "name": "regUser",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: "address",
-          name: "_user",
-          type: "address",
+          "indexed": false,
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: "address",
-          name: "referralAddress",
-          type: "address",
-        },
+          "indexed": false,
+          "internalType": "address",
+          "name": "referralAddress",
+          "type": "address"
+        }
       ],
-      name: "regUserEv",
-      type: "event",
+      "name": "regUserEv",
+      "type": "event"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "GhOrder",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "GhOrder",
+          "type": "uint256"
+        }
       ],
-      name: "remainMatching",
-      outputs: [
+      "name": "remainMatching",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "remainPay",
-      outputs: [
+      "inputs": [],
+      "name": "remainPay",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "unlockedSelf",
-      outputs: [
+      "inputs": [],
+      "name": "unlockedSelf",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "nonpayable",
-      type: "function",
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
       ],
-      name: "activeLevelsView",
-      outputs: [
+      "name": "activeLevelsView",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "activeLevels",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "activeLevels",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "_user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
       ],
-      name: "activeUser",
-      outputs: [
+      "name": "activeUser",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "active",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "active",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "avGetHelp",
-      outputs: [
+      "inputs": [],
+      "name": "avGetHelp",
+      "outputs": [
         {
-          internalType: "uint128",
-          name: "avGh",
-          type: "uint128",
-        },
+          "internalType": "uint128",
+          "name": "avGh",
+          "type": "uint128"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      name: "bonusInfos",
-      outputs: [
+      "name": "bonusInfos",
+      "outputs": [
         {
-          internalType: "uint128",
-          name: "referralGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "referralGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "managerGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "managerGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "growthGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "growthGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "levelGrowthGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "levelGrowthGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "generationGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "generationGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "royalityGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "royalityGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "getGains",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "getGains",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "floatAmt",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "floatAmt",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "totalGh",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "totalGh",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "totalPh",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "totalPh",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "lastPh",
-          type: "uint128",
-        },
+          "internalType": "uint128",
+          "name": "lastPh",
+          "type": "uint128"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "userAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
       ],
-      name: "directUser",
-      outputs: [
+      "name": "directUser",
+      "outputs": [
         {
-          internalType: "address[]",
-          name: "referrals",
-          type: "address[]",
-        },
+          "internalType": "address[]",
+          "name": "referrals",
+          "type": "address[]"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "distShare",
-      outputs: [
+      "inputs": [],
+      "name": "distShare",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "userAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
       ],
-      name: "findGenUser",
-      outputs: [
+      "name": "findGenUser",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "preQf",
-          type: "bool",
+          "internalType": "bool",
+          "name": "preQf",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "Qf",
-          type: "bool",
+          "internalType": "bool",
+          "name": "Qf",
+          "type": "bool"
         },
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
       ],
-      name: "findOrder",
-      outputs: [
+      "name": "findOrder",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "order",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "order",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "findRemainPh",
-      outputs: [
+      "inputs": [],
+      "name": "findRemainPh",
+      "outputs": [
         {
-          internalType: "uint64",
-          name: "phID",
-          type: "uint64",
+          "internalType": "uint64",
+          "name": "phID",
+          "type": "uint64"
         },
         {
-          internalType: "uint32",
-          name: "remainValue",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "remainValue",
+          "type": "uint32"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "value",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
       ],
-      name: "getPrice",
-      outputs: [
+      "name": "getPrice",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "ghAddress",
-      outputs: [
+      "name": "ghAddress",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "ghInfos",
-      outputs: [
+      "name": "ghInfos",
+      "outputs": [
         {
-          internalType: "uint32",
-          name: "orderValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "orderValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "paidValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "paidValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "matchedValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "matchedValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint256",
-          name: "orderTime",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "orderTime",
+          "type": "uint256"
         },
         {
-          internalType: "bool",
-          name: "isComplete",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "isComplete",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "_user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
       ],
-      name: "ghPotential",
-      outputs: [
+      "name": "ghPotential",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "orderID",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "orderID",
+          "type": "uint256"
         },
         {
-          internalType: "uint128",
-          name: "totGain",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "totGain",
+          "type": "uint128"
         },
         {
-          internalType: "uint64",
-          name: "phValue",
-          type: "uint64",
+          "internalType": "uint64",
+          "name": "phValue",
+          "type": "uint64"
         },
         {
-          internalType: "uint128",
-          name: "growth",
-          type: "uint128",
-        },
+          "internalType": "uint128",
+          "name": "growth",
+          "type": "uint128"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "linkID",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "linkID",
+          "type": "uint256"
+        }
       ],
-      name: "linkExpireTime",
-      outputs: [
+      "name": "linkExpireTime",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "remainTime",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "remainTime",
+          "type": "uint256"
         },
         {
-          internalType: "bool",
-          name: "afterPay",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "afterPay",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "linkInfos",
-      outputs: [
+      "name": "linkInfos",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "phOrder",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "phOrder",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "ghOrder",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "ghOrder",
+          "type": "uint256"
         },
         {
-          internalType: "uint32",
-          name: "linkValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "linkValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint256",
-          name: "linkTime",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "linkTime",
+          "type": "uint256"
         },
         {
-          internalType: "bool",
-          name: "storagePay",
-          type: "bool",
+          "internalType": "bool",
+          "name": "storagePay",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "isCancel",
-          type: "bool",
+          "internalType": "bool",
+          "name": "isCancel",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "payStatus",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "payStatus",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "matchedPhId",
-      outputs: [
+      "inputs": [],
+      "name": "matchedPhId",
+      "outputs": [
         {
-          internalType: "uint64",
-          name: "",
-          type: "uint64",
-        },
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "_user",
-          type: "address",
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
         },
         {
-          internalType: "bool",
-          name: "fullrun",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "fullrun",
+          "type": "bool"
+        }
       ],
-      name: "matureOrder",
-      outputs: [
+      "name": "matureOrder",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "activePh",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "activePh",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "unlock_ID",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "unlock_ID",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "mature_ID",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "mature_ID",
+          "type": "uint256"
         },
         {
-          internalType: "uint64",
-          name: "limit",
-          type: "uint64",
-        },
+          "internalType": "uint64",
+          "name": "limit",
+          "type": "uint64"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "nextRoyalty",
-      outputs: [
+      "inputs": [],
+      "name": "nextRoyalty",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint32",
-          name: "amount",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "amount",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "primValue",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "primValue",
+          "type": "uint32"
+        }
       ],
-      name: "payPhValue",
-      outputs: [
+      "name": "payPhValue",
+      "outputs": [
         {
-          internalType: "uint32",
-          name: "primAmt",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "primAmt",
+          "type": "uint32"
+        }
       ],
-      stateMutability: "pure",
-      type: "function",
+      "stateMutability": "pure",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "phAddress",
-      outputs: [
+      "name": "phAddress",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "phOrder",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "phOrder",
+          "type": "uint256"
+        }
       ],
-      name: "phGrowth",
-      outputs: [
+      "name": "phGrowth",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "avGrowth",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "avGrowth",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "phInfos",
-      outputs: [
+      "name": "phInfos",
+      "outputs": [
         {
-          internalType: "uint32",
-          name: "orderValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "orderValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "paidValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "paidValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "matchedValue",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "matchedValue",
+          "type": "uint32"
         },
         {
-          internalType: "uint256",
-          name: "orderTime",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "orderTime",
+          "type": "uint256"
         },
         {
-          internalType: "uint8",
-          name: "isMature",
-          type: "uint8",
+          "internalType": "uint8",
+          "name": "isMature",
+          "type": "uint8"
         },
         {
-          internalType: "bool",
-          name: "isAfterTime",
-          type: "bool",
+          "internalType": "bool",
+          "name": "isAfterTime",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "isComplete",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "isComplete",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "reserveContract",
-      outputs: [
+      "inputs": [],
+      "name": "reserveContract",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "routerAddress",
-      outputs: [
+      "inputs": [],
+      "name": "routerAddress",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "royalty_Index",
-      outputs: [
+      "inputs": [],
+      "name": "royalty_Index",
+      "outputs": [
         {
-          internalType: "uint32",
-          name: "",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      name: "royaltys",
-      outputs: [
+      "name": "royaltys",
+      "outputs": [
         {
-          internalType: "uint128",
-          name: "royalty_Fund",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "royalty_Fund",
+          "type": "uint128"
         },
         {
-          internalType: "uint32",
-          name: "GR_Users",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "GR_Users",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "AR_Users",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "AR_Users",
+          "type": "uint32"
         },
         {
-          internalType: "uint128",
-          name: "GR_total_Share",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "GR_total_Share",
+          "type": "uint128"
         },
         {
-          internalType: "uint128",
-          name: "AR_total_Share",
-          type: "uint128",
-        },
+          "internalType": "uint128",
+          "name": "AR_total_Share",
+          "type": "uint128"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "tokenAddress",
-      outputs: [
+      "inputs": [],
+      "name": "tokenAddress",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "userAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
       ],
-      name: "totalDirect",
-      outputs: [
+      "name": "totalDirect",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "count",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "count",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "_user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
       ],
-      name: "totalGains",
-      outputs: [
+      "name": "totalGains",
+      "outputs": [
         {
-          internalType: "uint128",
-          name: "total",
-          type: "uint128",
-        },
+          "internalType": "uint128",
+          "name": "total",
+          "type": "uint128"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "totalGhOrder",
-      outputs: [
+      "inputs": [],
+      "name": "totalGhOrder",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "ghCount",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "ghCount",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "totalLinkID",
-      outputs: [
+      "inputs": [],
+      "name": "totalLinkID",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "linkCount",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "linkCount",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "totalPhOrder",
-      outputs: [
+      "inputs": [],
+      "name": "totalPhOrder",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "phCount",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "phCount",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "usdAddress",
-      outputs: [
+      "inputs": [],
+      "name": "usdAddress",
+      "outputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
       ],
-      name: "userInfos",
-      outputs: [
+      "name": "userInfos",
+      "outputs": [
         {
-          internalType: "address",
-          name: "referral",
-          type: "address",
+          "internalType": "address",
+          "name": "referral",
+          "type": "address"
         },
         {
-          internalType: "uint32",
-          name: "totalTeam",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "totalTeam",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "strongTeam",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "strongTeam",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "phFailed",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "phFailed",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "payIndex",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "payIndex",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "lastGh",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "lastGh",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "royaltyStage",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "royaltyStage",
+          "type": "uint32"
         },
         {
-          internalType: "bool",
-          name: "Gen_Qualify",
-          type: "bool",
+          "internalType": "bool",
+          "name": "Gen_Qualify",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "isManager",
-          type: "bool",
+          "internalType": "bool",
+          "name": "isManager",
+          "type": "bool"
         },
         {
-          internalType: "bool",
-          name: "joined",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "joined",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
       ],
-      name: "userLiveStatus",
-      outputs: [
+      "name": "userLiveStatus",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "isMang",
-          type: "bool",
+          "internalType": "bool",
+          "name": "isMang",
+          "type": "bool"
         },
         {
-          internalType: "uint32",
-          name: "managCount",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "managCount",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "strongLeg",
-          type: "uint32",
+          "internalType": "uint32",
+          "name": "strongLeg",
+          "type": "uint32"
         },
         {
-          internalType: "uint32",
-          name: "totalTeam",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "totalTeam",
+          "type": "uint32"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "uint256",
-          name: "userPhCount",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "userPhCount",
+          "type": "uint256"
+        }
       ],
-      name: "UserPhView",
-      outputs: [
+      "name": "UserPhView",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "phOredrID",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "phOredrID",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "oredrValue",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "oredrValue",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "userAddress",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
       ],
-      name: "userRoyalty",
-      outputs: [
+      "name": "userRoyalty",
+      "outputs": [
         {
-          internalType: "uint128",
-          name: "royaltyAmt",
-          type: "uint128",
+          "internalType": "uint128",
+          "name": "royaltyAmt",
+          "type": "uint128"
         },
         {
-          internalType: "uint32",
-          name: "royaltyType",
-          type: "uint32",
-        },
+          "internalType": "uint32",
+          "name": "royaltyType",
+          "type": "uint32"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "user",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
       ],
-      name: "viewLink",
-      outputs: [
+      "name": "viewLink",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "linksCount",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "linksCount",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "pay_Link",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "pay_Link",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "viewRoyalty",
-      outputs: [
+      "inputs": [],
+      "name": "viewRoyalty",
+      "outputs": [
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         },
         {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
-    },
+      "stateMutability": "view",
+      "type": "function"
+    }
   ];
   let _abi = contractAbi;
   let walletAddressCopy = "";
@@ -1522,10 +1522,10 @@ $(document).ready(async function () {
   }
 
   // wei to eather
-  function weiToEther(weiAmount, decimalPlaces) {
-    let etherValue = web3.utils.fromWei(weiAmount, "ether");
-    return parseFloat(etherValue).toFixed(decimalPlaces);
-  }
+  // function weiToEther(weiAmount, decimalPlaces) {
+  //   let etherValue = web3.utils.fromWei(weiAmount, "ether");
+  //   return parseFloat(etherValue).toFixed(decimalPlaces);
+  // }
 
   // validate input is filled or not
   function validateAndTab(inputId, error) {
@@ -1606,10 +1606,6 @@ $(document).ready(async function () {
           _transactionLink
             .attr("href", `https://polygonscan.com/tx/${result}`)
             .attr("target", "_blank");
-          // setAttribute --> href using jquery
-          // Set href attribute of an anchor element with id "myLink"
-
-          // hash -->result
           return;
         }
 
@@ -1637,16 +1633,8 @@ $(document).ready(async function () {
         else if (isInteger(result)) {
           console.log("Result is an integer:", result);
 
-          if (
-            functionName === "activeLevelsView" ||
-            functionName === "linkExpireTime" ||
-            functionName === "findOrder" ||
-            functionName === "totalDirect"
-          ) {
             _resultMsg.text(result);
-          } else {
-            _resultMsg.text(weiToEther(result, 2));
-          }
+          
         } 
         else if(isArray(result)){
           console.log("Array");
@@ -1675,24 +1663,26 @@ $(document).ready(async function () {
           
 
           for (const key in result) {
-            if (functionName === "royaltys") {
-              if (
-                key === "royalty_Fund" ||
-                key === "GR_total_Share" ||
-                key === "AR_total_Share"
-              ) {
-                result[key] = weiToEther(result[key], 2);
+
+            if(functionName==='findGenUser'){
+              if(key==0||key==1){
+                continue;
               }
+              else{
+            _resultMsg.append(key + ": " + result[key] + "<br>"); // Append to _resultMsg
+
+              }
+              
+
             }
-
-
-            if (isNaN(key) && !keyNum) {
+            else if (isNaN(key) || keyNum) {
+              
               _resultMsg.append(key + ": " + result[key] + "<br>"); // Append to _resultMsg
             }
 
-            // if (keyNum) {
-            //   _resultMsg.append(key + ": " + result[key] + "<br>");
-            // }
+            if (keyNum) {
+              _resultMsg.append(key + ": " + result[key] + "<br>");
+            }
 
             // console.log(key);
             // console.log(typeof key);
@@ -1757,11 +1747,9 @@ $(document).ready(async function () {
         // console.log(totalLinkIDResult);
         // console.log(areAllKeysNumbers(totalLinkIDResult));
       } else {
-        if (functionName === "distShare") {
-          _inputId.text(weiToEther(totalLinkIDResult, 2));
-        } else {
+        
           _inputId.text(totalLinkIDResult);
-        }
+        
       }
     } catch (error) {
       console.error("Error:", error);
@@ -2168,23 +2156,23 @@ $(document).ready(async function () {
   });
   // userLiveStatus end
 
-  //36. userPhView start
-  $("#userPhViewSubmit").click(function (event) {
+  //36. UserPhView start
+  $("#UserPhViewSubmit").click(function (event) {
     event.preventDefault();
     if (walletAddressCopy === "") {
       alert("Please connect your wallet before submitting.");
       return;
     } else {
       submitBtn(
-        "userPhViewInput",
+        "UserPhViewInput",
         undefined,
-        "userPhViewPara",
-        "userPhViewErrorMessage",
+        "UserPhViewPara",
+        "UserPhViewErrorMessage",
         "UserPhView"
       );
     }
   });
-  // userPhView end
+  // UserPhView end
 
   //37. userRoyalty start
   $("#userRoyaltySubmit").click(function (event) {
